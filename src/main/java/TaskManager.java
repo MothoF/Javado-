@@ -9,6 +9,7 @@ public class TaskManager {
     public TaskManager() {
         // Initialize tasks list
         this.tasks = new ArrayList<>();
+        this.exit();
         //return this.tasks;
     }
 
@@ -30,18 +31,14 @@ public class TaskManager {
 
     public void exit() {
         // leave for iteration 2
-        if (!tasks.isEmpty()) {
-            try (FileWriter file = new FileWriter("tasks.csv");BufferedWriter bfile = new BufferedWriter(file)) {
-                for (String task : tasks){
-                    bfile.write(task);
-                    bfile.newLine();
-                }
-            } catch (Exception e) {
-                //e.printStackTrace();
-                System.out.println(e.getMessage());
+        try (FileWriter file = new FileWriter("tasks.csv");BufferedWriter bfile = new BufferedWriter(file)) {
+            for (String task : tasks){
+                bfile.write(task);
+                bfile.newLine();
             }
-        } else {
-            System.out.println("There are no tasks to save\n");
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }
