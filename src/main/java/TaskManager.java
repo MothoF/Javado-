@@ -25,6 +25,7 @@ public class TaskManager {
 
     public void deleteTask(String task){
 //        leave for iteration 4
+        tasks.remove(task);
     }
 
     public void exit() {
