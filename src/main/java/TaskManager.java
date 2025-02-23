@@ -26,7 +26,20 @@ public class TaskManager {
 
     public void deleteTask(Task task){
 //        leave for iteration 4
-        tasks.remove(task);
+        /*try {
+            if (!tasks.contains(task)) {
+                throw new IllegalArgumentException("Task not found!");
+            } else {
+                tasks.remove(task);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }*/
+        if (!tasks.contains(task)) {
+            throw new IllegalArgumentException("Task not found!");
+        } else {
+            tasks.remove(task);
+        }
     }
 
     public void exit() {
@@ -44,5 +57,16 @@ public class TaskManager {
 
     public void markTaskAsComplete(Task task) {
         task.setComplete(true);
+    }
+
+    public void processMenuChoice(int choice) {
+        /*try {
+            if (choice > 4) {
+                throw new IllegalArgumentException("Invalid menu option!");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }*/
+        throw new IllegalArgumentException("Invalid menu option!");
     }
 }
