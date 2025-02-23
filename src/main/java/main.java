@@ -21,7 +21,8 @@ public class main {
                 case 1:
                     System.out.print("Enter task: ");
                     String task = scanner.nextLine();
-                    manager.addTask(task);
+                    Task new_task = new Task(task,"a task to complete",false);
+                    manager.addTask(new_task);
                     break;
                 case 2:
                     System.out.println("Tasks: " + manager.listTasks());
@@ -29,7 +30,11 @@ public class main {
                 case 3:
                     System.out.print("Enter task to delete: ");
                     String tas = scanner.nextLine();
-                    manager.deleteTask(tas);
+                    for (Task task_obj : manager.listTasks()){
+                        if (task_obj.getTitle().equals(tas)){
+                            manager.deleteTask(task_obj);
+                        }
+                    }
                     System.out.println("Deleting...");
                     break;
                 case 4:
